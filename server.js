@@ -24,9 +24,9 @@ function middleWare(req, res, next) {
     console.log('item received');
     next()
 }
-app.use(cors(
+app.use(cors({
      origin: ['https://school-portal-pi-rosy.vercel.app']
-))
+}))
 app.use(middleWare)
 
 app.use(express.json())
