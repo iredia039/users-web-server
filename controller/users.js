@@ -31,7 +31,7 @@ async function logClient(req, res, next) {
         const { email, password } = req.body
         const user = await logUser(email, password)
         const token = jwt.sign({ id: user._id, role:user.role}, process.env.JWT_SECRET)
-        res.send({ token })
+        res.send({ token, role: user.role })
     } catch (error) {
                 console.error(error)
         next(error)
